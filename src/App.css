@@ -1,8 +1,16 @@
-.App{
-  text-align: center;
+.baap {
   background-color: orange;
-  }
+}
 
-.submitBtn{
+.center {
+  text-align: center;
+}
+
+.submitBtn {
   background-color: skyblue;
+}
+
+.displayList {
+  width: 50%;
+  text-align: center;
 }
