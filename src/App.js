@@ -13,6 +13,20 @@ function App() {
   const [complete, setComplete] = useState([]);
   const [incomplete, setIncomplete] = useState([]);
 
+  useEffect(() => {
+    if (localStorage.getItem("burgerkey") != null) {
+      setListOfBurgers(JSON.parse(localStorage.getItem("burgerkey")));
+    }
+  }, []); 
+  
+  useEffect(() => {
+    completeList();
+    inCompleteList();
+    localStorage.setItem("burgerkey", JSON.stringify(listOfBurgers));
+  }, [listOfBurgers]);
+
+
+
   const completeList = () => {
     setComplete(
       listOfBurgers.filter((el) => {
@@ -29,21 +43,16 @@ function App() {
     );
   };
 
-  useEffect(() => {
-    completeList();
-    inCompleteList();
-  }, [listOfBurgers]);
-
   return (
     <div className="baap">
       <Header />
-          <DisplayInCompleteList
+      <DisplayInCompleteList
         listOfBurgers={listOfBurgers}
         incomplete={incomplete}
         setListOfBurgers={setListOfBurgers}
       />
       <DisplayCompList complete={complete} />
-      
+
       <TextBox setBurgerName={setBurgerName} burgerName={burgerName} />
       <SubmitBtn
         setListOfBurgers={setListOfBurgers}
