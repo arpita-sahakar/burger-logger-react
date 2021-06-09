@@ -1,9 +1,11 @@
 import React from 'react'
 
-function DisplayCompList() {
+function DisplayCompList({complete}) {
     return (
-        <div>
-            
+        <div className="displayList right">
+            {complete.map(el=>{
+                return <h3>{el.text}</h3>
+            })}
         </div>
     )
 }

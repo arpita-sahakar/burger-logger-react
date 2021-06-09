@@ -1,6 +1,6 @@
 import React from "react";
 
-function Devor({listOfBurgers, burger, setListOfBurgers}) {
+function Devor({incomplete, burger, setListOfBurgers, listOfBurgers}) {
 
     const devorIt =()=>{
         setListOfBurgers(listOfBurgers.map(el=>{
